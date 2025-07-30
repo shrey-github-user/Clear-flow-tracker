@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { format } from 'date-fns';
-import { Edit, Trash2, Calendar, DollarSign, FileText } from 'lucide-react';
+import { Edit, Trash2, Calendar, IndianRupee, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -38,7 +38,7 @@ export function TransactionTable({
       <Card className="bg-gradient-card border shadow-lg">
         <CardContent className="flex flex-col items-center justify-center py-12">
           <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4">
-            <DollarSign className="w-8 h-8 text-muted-foreground" />
+            <IndianRupee />
           </div>
           <h3 className="text-lg font-semibold text-foreground mb-2">No transactions yet</h3>
           <p className="text-muted-foreground text-center">
@@ -63,13 +63,13 @@ export function TransactionTable({
                   <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
                   <Badge 
                     variant="secondary" 
-                    className={`${
+                    className={`{
                       category.type === 'income' 
                         ? 'bg-success-light text-success-dark' 
                         : 'bg-warning-light text-warning-dark'
                     }`}
                   >
-                    ${total.toFixed(2)}
+                    {total.toFixed(2)}
                   </Badge>
                 </div>
               </CardHeader>
@@ -91,11 +91,11 @@ export function TransactionTable({
                           <div className="flex items-start justify-between mb-2">
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 mb-1">
-                                <DollarSign className={`w-4 h-4 ${
+                                <IndianRupee className={`w-4 h-4 {
                                   transaction.type === 'income' ? 'text-success' : 'text-warning'
                                 }`} />
                                 <span className="font-semibold text-foreground">
-                                  ${transaction.amount.toFixed(2)}
+                                  {transaction.amount.toFixed(2)}
                                 </span>
                               </div>
                               
