@@ -24,7 +24,7 @@ export function exportToPDF(
   const total = transactions.reduce((sum, t) => sum + t.amount, 0);
   doc.setFontSize(14);
   doc.setTextColor(40, 40, 40);
-  doc.text(`Total ${type === 'income' ? 'Income' : 'Expenses'}: $${total.toFixed(2)}`, 20, 60);
+  doc.text(`Total ${type === 'income' ? 'Income' : 'Expenses'}: Rs.${total.toFixed(2)}`, 20, 60);
   
   // Group transactions by category for the table
   const tableData: any[] = [];
@@ -44,7 +44,7 @@ export function exportToPDF(
         .forEach(transaction => {
           tableData.push([
             format(new Date(transaction.date), 'MMM dd, yyyy'),
-            `$${transaction.amount.toFixed(2)}`,
+            `Rs.${transaction.amount.toFixed(2)}`,
             transaction.description || '-',
             ''
           ]);
@@ -54,7 +54,7 @@ export function exportToPDF(
       const categoryTotal = categoryTransactions.reduce((sum, t) => sum + t.amount, 0);
       tableData.push([
         { content: '', colSpan: 1 },
-        { content: `Subtotal: $${categoryTotal.toFixed(2)}`, colSpan: 3, styles: { fontStyle: 'bold' } }
+        { content: `Subtotal: Rs.${categoryTotal.toFixed(2)}`, colSpan: 3, styles: { fontStyle: 'bold' } }
       ]);
       
       // Add spacing

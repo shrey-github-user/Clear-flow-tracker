@@ -57,7 +57,7 @@ export function ExpenseTracker() {
 
     toast({
       title: "Transaction added successfully",
-      description: `${transaction.type === 'income' ? 'Income' : 'Expense'} of $${transaction.amount} added.`,
+      description: `${transaction.type === 'income' ? 'Income' : 'Expense'} of ₹${transaction.amount} added.`,
     });
   };
 
@@ -145,7 +145,7 @@ export function ExpenseTracker() {
               <TrendingUp className="h-4 w-4 opacity-90" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">${totalIncome.toFixed(2)}</div>
+              <div className="text-2xl font-bold">₹{totalIncome.toFixed(2)}</div>
             </CardContent>
           </Card>
 
@@ -155,7 +155,7 @@ export function ExpenseTracker() {
               <TrendingDown className="h-4 w-4 opacity-90" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">${totalExpense.toFixed(2)}</div>
+              <div className="text-2xl font-bold">₹{totalExpense.toFixed(2)}</div>
             </CardContent>
           </Card>
 
@@ -164,7 +164,7 @@ export function ExpenseTracker() {
               <CardTitle className="text-sm font-medium opacity-90">Balance</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">${balance.toFixed(2)}</div>
+              <div className="text-2xl font-bold">₹{balance.toFixed(2)}</div>
             </CardContent>
           </Card>
         </div>
